@@ -5,7 +5,7 @@
 //  Created by Paul Richardson on 10/7/2023.
 //
 
-import Foundation
+import SwiftUI
 
 struct AstronautDetailViewModel {
 
@@ -17,6 +17,17 @@ struct AstronautDetailViewModel {
 	var bio: String
 	var imageUrl: String
 	var dob: String
+
+	var image: UIImage? {
+		get {
+			if let url = URL(string: imageUrl),
+			   let data = try? Data(contentsOf: url) {
+				return UIImage(data: data)
+			}
+			return nil
+		}
+	}
+
 
 	init(astronaut: Astronaut = Astronaut.preview) {
 		self.id = astronaut.id
