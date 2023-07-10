@@ -13,7 +13,7 @@ struct AstronautsView: View {
 
     var body: some View {
 		NavigationView {
-			ScrollView{
+			ScrollView {
 				ForEach(viewModel.astronautCellViewModels) { cellViewModel in
 					NavigationLink {
 						AstronautDetailView(

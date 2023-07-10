@@ -34,7 +34,14 @@ final class AstronautDetailViewModel: ObservableObject {
 	}
 
 	var dob: String? {
-		astronaut?.dob
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd"
+		if let dob = astronaut?.dob,
+		   let date = dateFormatter.date(from: dob) {
+			dateFormatter.dateFormat = "MMMM d, yyyy"
+			return dateFormatter.string(from: date)
+		}
+		return astronaut?.dob
 	}
 
 	var image: UIImage? {
