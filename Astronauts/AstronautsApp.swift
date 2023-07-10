@@ -11,7 +11,7 @@ import SwiftUI
 struct AstronautsApp: App {
     var body: some Scene {
         WindowGroup {
-            AstronautsView()
+            AstronautsView(viewModel: AstronautsViewModel())
         }
     }
 }

@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct AstronautsView: View {
+
+	var viewModel: AstronautsViewModel
+
     var body: some View {
-        Text("Astronauts")
+		NavigationView {
+			ScrollView{
+				ForEach(viewModel.astronauts) {
+					Text($0.name)
+				}
+			}
+			.navigationTitle(viewModel.navigationTitle)
+		}
     }
+
 }
 
 struct AstronautsView_Previews: PreviewProvider {
     static var previews: some View {
-        AstronautsView()
+		AstronautsView(viewModel: AstronautsViewModel())
     }
 }

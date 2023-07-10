@@ -30,7 +30,8 @@ struct Astronauts: Codable {
 
 extension Astronauts {
 
-	struct Astronaut: Codable {
+	struct Astronaut: Codable, Identifiable {
+
 
 		// MARK: - Types
 
@@ -42,6 +43,7 @@ extension Astronauts {
 
 		// MARK: - Properties
 
+		var id: String
 		var name: String
 		var nationality: String
 		var image: String
@@ -49,6 +51,7 @@ extension Astronauts {
 		// MARK: - Initialization
 
 		init(from decoder: Decoder) throws {
+			self.id = UUID().uuidString
 			let container = try decoder.container(keyedBy: AstronautCodingKeys.self)
 			self.name = try container.decode(String.self, forKey: .name)
 			self.nationality = try container.decode(String.self, forKey: .nationality)
