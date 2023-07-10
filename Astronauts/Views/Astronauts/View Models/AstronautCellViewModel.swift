@@ -8,23 +8,16 @@
 import SwiftUI
 
 @MainActor
-final class AstronautCellViewModel: Identifiable {
+final class AstronautCellViewModel: ObservableObject, Identifiable {
 
 	// MARK: - Properties
+
+	@Published private(set) var image: UIImage?
+
 	var id: Int
 	var name: String
 	var nationality: String
 	var imageUrl: String
-
-	var image: UIImage? {
-		get {
-			if let url = URL(string: imageUrl),
-			   let data = try? Data(contentsOf: url) {
-				return UIImage(data: data)
-			}
-			return nil
-		}
-	}
 
 	// MARK: - Initialization
 
@@ -34,6 +27,21 @@ final class AstronautCellViewModel: Identifiable {
 		self.nationality = astronaut.nationality
 		self.imageUrl = astronaut.imageUrl
 	}
-	
+
+	fileprivate func loadImage() async {
+		let session = URLSession.shared
+		if let url = URL(string: imageUrl) {
+			do {
+				let (data, _) = try await session.data(from: url)
+				self.image = UIImage(data: data)
+			} catch {
+				print("Invalid data")
+			}
+		}
+	}
+
+	func start() async {
+		await loadImage()
+	}
 }
 
