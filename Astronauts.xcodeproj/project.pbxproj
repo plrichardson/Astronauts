@@ -11,21 +11,14 @@
 		DA1806BD2A5BEDC000D91177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1806BC2A5BEDC000D91177 /* Assets.xcassets */; };
 		DA1806C02A5BEDC000D91177 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1806BF2A5BEDC000D91177 /* Preview Assets.xcassets */; };
 		DA1806CA2A5BEDC000D91177 /* AstronautsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806C92A5BEDC000D91177 /* AstronautsTests.swift */; };
-		DA1806D42A5BEDC000D91177 /* AstronautsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806D32A5BEDC000D91177 /* AstronautsUITests.swift */; };
-		DA1806D62A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806D52A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift */; };
 		DA1806E82A5BEF9000D91177 /* AstronautsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806E72A5BEF9000D91177 /* AstronautsView.swift */; };
+		DA1806EC2A5BF03200D91177 /* Astronauts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806EB2A5BF03200D91177 /* Astronauts.swift */; };
 		DA1806EE2A5BF41700D91177 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1806ED2A5BF41700D91177 /* astronauts.json */; };
+		DA1806F02A5C01BB00D91177 /* Astronauts+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806EF2A5C01BB00D91177 /* Astronauts+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		DA1806C62A5BEDC000D91177 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DA1806AD2A5BEDBE00D91177 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DA1806B42A5BEDBE00D91177;
-			remoteInfo = Astronauts;
-		};
-		DA1806D02A5BEDC000D91177 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DA1806AD2A5BEDBE00D91177 /* Project object */;
 			proxyType = 1;
@@ -41,11 +34,10 @@
 		DA1806BF2A5BEDC000D91177 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA1806C52A5BEDC000D91177 /* AstronautsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronautsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1806C92A5BEDC000D91177 /* AstronautsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsTests.swift; sourceTree = "<group>"; };
-		DA1806CF2A5BEDC000D91177 /* AstronautsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronautsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA1806D32A5BEDC000D91177 /* AstronautsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITests.swift; sourceTree = "<group>"; };
-		DA1806D52A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DA1806E72A5BEF9000D91177 /* AstronautsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsView.swift; sourceTree = "<group>"; };
+		DA1806EB2A5BF03200D91177 /* Astronauts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronauts.swift; sourceTree = "<group>"; };
 		DA1806ED2A5BF41700D91177 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
+		DA1806EF2A5C01BB00D91177 /* Astronauts+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Astronauts+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +55,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA1806CC2A5BEDC000D91177 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,7 +63,6 @@
 			children = (
 				DA1806B72A5BEDBE00D91177 /* Astronauts */,
 				DA1806C82A5BEDC000D91177 /* AstronautsTests */,
-				DA1806D22A5BEDC000D91177 /* AstronautsUITests */,
 				DA1806B62A5BEDBE00D91177 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,7 +72,6 @@
 			children = (
 				DA1806B52A5BEDBE00D91177 /* Astronauts.app */,
 				DA1806C52A5BEDC000D91177 /* AstronautsTests.xctest */,
-				DA1806CF2A5BEDC000D91177 /* AstronautsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,9 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				DA1806B82A5BEDBE00D91177 /* AstronautsApp.swift */,
-				DA1806BC2A5BEDC000D91177 /* Assets.xcassets */,
+				DA1806E52A5BEF6200D91177 /* Views */,
+				DA1806EA2A5BF01400D91177 /* Models */,
+				DA1806F12A5C032000D91177 /* Resources */,
 				DA1806BE2A5BEDC000D91177 /* Preview Content */,
-				DA1806E42A5BEF4700D91177 /* Astronauts */,
 			);
 			path = Astronauts;
 			sourceTree = "<group>";
@@ -109,6 +93,7 @@
 			children = (
 				DA1806BF2A5BEDC000D91177 /* Preview Assets.xcassets */,
 				DA1806ED2A5BF41700D91177 /* astronauts.json */,
+				DA1806EF2A5C01BB00D91177 /* Astronauts+Preview.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -116,24 +101,15 @@
 		DA1806C82A5BEDC000D91177 /* AstronautsTests */ = {
 			isa = PBXGroup;
 			children = (
-				DA1806C92A5BEDC000D91177 /* AstronautsTests.swift */,
+				DA1806F22A5C033A00D91177 /* Model */,
 			);
 			path = AstronautsTests;
-			sourceTree = "<group>";
-		};
-		DA1806D22A5BEDC000D91177 /* AstronautsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DA1806D32A5BEDC000D91177 /* AstronautsUITests.swift */,
-				DA1806D52A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift */,
-			);
-			path = AstronautsUITests;
 			sourceTree = "<group>";
 		};
 		DA1806E42A5BEF4700D91177 /* Astronauts */ = {
 			isa = PBXGroup;
 			children = (
-				DA1806E52A5BEF6200D91177 /* Views */,
+				DA1806E72A5BEF9000D91177 /* AstronautsView.swift */,
 				DA1806E62A5BEF6900D91177 /* View Models */,
 			);
 			path = Astronauts;
@@ -142,7 +118,7 @@
 		DA1806E52A5BEF6200D91177 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DA1806E72A5BEF9000D91177 /* AstronautsView.swift */,
+				DA1806E42A5BEF4700D91177 /* Astronauts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +128,30 @@
 			children = (
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		DA1806EA2A5BF01400D91177 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA1806EB2A5BF03200D91177 /* Astronauts.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DA1806F12A5C032000D91177 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA1806BC2A5BEDC000D91177 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DA1806F22A5C033A00D91177 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA1806C92A5BEDC000D91177 /* AstronautsTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,24 +192,6 @@
 			productReference = DA1806C52A5BEDC000D91177 /* AstronautsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DA1806CE2A5BEDC000D91177 /* AstronautsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA1806DF2A5BEDC000D91177 /* Build configuration list for PBXNativeTarget "AstronautsUITests" */;
-			buildPhases = (
-				DA1806CB2A5BEDC000D91177 /* Sources */,
-				DA1806CC2A5BEDC000D91177 /* Frameworks */,
-				DA1806CD2A5BEDC000D91177 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DA1806D12A5BEDC000D91177 /* PBXTargetDependency */,
-			);
-			name = AstronautsUITests;
-			productName = AstronautsUITests;
-			productReference = DA1806CF2A5BEDC000D91177 /* AstronautsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,10 +206,6 @@
 						CreatedOnToolsVersion = 14.3.1;
 					};
 					DA1806C42A5BEDC000D91177 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = DA1806B42A5BEDBE00D91177;
-					};
-					DA1806CE2A5BEDC000D91177 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = DA1806B42A5BEDBE00D91177;
 					};
@@ -248,7 +226,6 @@
 			targets = (
 				DA1806B42A5BEDBE00D91177 /* Astronauts */,
 				DA1806C42A5BEDC000D91177 /* AstronautsTests */,
-				DA1806CE2A5BEDC000D91177 /* AstronautsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,13 +248,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA1806CD2A5BEDC000D91177 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -285,7 +255,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1806F02A5C01BB00D91177 /* Astronauts+Preview.swift in Sources */,
 				DA1806E82A5BEF9000D91177 /* AstronautsView.swift in Sources */,
+				DA1806EC2A5BF03200D91177 /* Astronauts.swift in Sources */,
 				DA1806B92A5BEDBE00D91177 /* AstronautsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,15 +270,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA1806CB2A5BEDC000D91177 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DA1806D62A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift in Sources */,
-				DA1806D42A5BEDC000D91177 /* AstronautsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -314,11 +277,6 @@
 			isa = PBXTargetDependency;
 			target = DA1806B42A5BEDBE00D91177 /* Astronauts */;
 			targetProxy = DA1806C62A5BEDC000D91177 /* PBXContainerItemProxy */;
-		};
-		DA1806D12A5BEDC000D91177 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DA1806B42A5BEDBE00D91177 /* Astronauts */;
-			targetProxy = DA1806D02A5BEDC000D91177 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -535,42 +493,6 @@
 			};
 			name = Release;
 		};
-		DA1806E02A5BEDC000D91177 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UC6H82UP9B;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.plrichardson.AstronautsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Astronauts;
-			};
-			name = Debug;
-		};
-		DA1806E12A5BEDC000D91177 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UC6H82UP9B;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.plrichardson.AstronautsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Astronauts;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -597,15 +519,6 @@
 			buildConfigurations = (
 				DA1806DD2A5BEDC000D91177 /* Debug */,
 				DA1806DE2A5BEDC000D91177 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DA1806DF2A5BEDC000D91177 /* Build configuration list for PBXNativeTarget "AstronautsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DA1806E02A5BEDC000D91177 /* Debug */,
-				DA1806E12A5BEDC000D91177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
