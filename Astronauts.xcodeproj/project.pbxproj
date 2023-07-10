@@ -26,6 +26,9 @@
 		DA1807052A5C31BA00D91177 /* Astronaut+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1807042A5C31BA00D91177 /* Astronaut+Preview.swift */; };
 		DA1807072A5C320C00D91177 /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = DA1807062A5C320C00D91177 /* astronaut.json */; };
 		DA1807092A5C332B00D91177 /* AstronautDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1807082A5C332B00D91177 /* AstronautDetailViewModelTests.swift */; };
+		DA18070C2A5C3F9200D91177 /* AstronautsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA18070B2A5C3F9200D91177 /* AstronautsService.swift */; };
+		DA18070E2A5C401B00D91177 /* AstronautsPreviewClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA18070D2A5C401B00D91177 /* AstronautsPreviewClient.swift */; };
+		DA1807102A5C410F00D91177 /* AstronautsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA18070F2A5C410F00D91177 /* AstronautsClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		DA1807042A5C31BA00D91177 /* Astronaut+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Astronaut+Preview.swift"; sourceTree = "<group>"; };
 		DA1807062A5C320C00D91177 /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut.json; sourceTree = "<group>"; };
 		DA1807082A5C332B00D91177 /* AstronautDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailViewModelTests.swift; sourceTree = "<group>"; };
+		DA18070B2A5C3F9200D91177 /* AstronautsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsService.swift; sourceTree = "<group>"; };
+		DA18070D2A5C401B00D91177 /* AstronautsPreviewClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsPreviewClient.swift; sourceTree = "<group>"; };
+		DA18070F2A5C410F00D91177 /* AstronautsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 				DA1806B82A5BEDBE00D91177 /* AstronautsApp.swift */,
 				DA1806E52A5BEF6200D91177 /* Views */,
 				DA1806EA2A5BF01400D91177 /* Models */,
+				DA18070A2A5C3F7600D91177 /* Astronauts */,
 				DA1806F12A5C032000D91177 /* Resources */,
 				DA1806BE2A5BEDC000D91177 /* Preview Content */,
 			);
@@ -193,6 +200,16 @@
 				DA1807082A5C332B00D91177 /* AstronautDetailViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DA18070A2A5C3F7600D91177 /* Astronauts */ = {
+			isa = PBXGroup;
+			children = (
+				DA18070B2A5C3F9200D91177 /* AstronautsService.swift */,
+				DA18070D2A5C401B00D91177 /* AstronautsPreviewClient.swift */,
+				DA18070F2A5C410F00D91177 /* AstronautsClient.swift */,
+			);
+			path = Astronauts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,8 +320,11 @@
 				DA1806FD2A5C2DF400D91177 /* AstronautDetailView.swift in Sources */,
 				DA1806FF2A5C2E9900D91177 /* AstronautDetailViewModel.swift in Sources */,
 				DA1806E82A5BEF9000D91177 /* AstronautsView.swift in Sources */,
+				DA18070E2A5C401B00D91177 /* AstronautsPreviewClient.swift in Sources */,
 				DA1806EC2A5BF03200D91177 /* Astronauts.swift in Sources */,
+				DA18070C2A5C3F9200D91177 /* AstronautsService.swift in Sources */,
 				DA1807012A5C2F2300D91177 /* Astronaut.swift in Sources */,
+				DA1807102A5C410F00D91177 /* AstronautsClient.swift in Sources */,
 				DA1806B92A5BEDBE00D91177 /* AstronautsApp.swift in Sources */,
 				DA1807052A5C31BA00D91177 /* Astronaut+Preview.swift in Sources */,
 				DA1806FB2A5C222300D91177 /* AstronautCellViewModel.swift in Sources */,
