@@ -11,7 +11,11 @@ import SwiftUI
 struct AstronautsApp: App {
     var body: some Scene {
         WindowGroup {
-            AstronautsView(viewModel: AstronautsViewModel())
+			AstronautsView(
+				viewModel: AstronautsViewModel(
+					astronautsService: AstronautsClient()
+				)
+			)
         }
     }
 }

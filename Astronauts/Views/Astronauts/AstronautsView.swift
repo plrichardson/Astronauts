@@ -9,17 +9,17 @@ import SwiftUI
 
 struct AstronautsView: View {
 
-	var viewModel: AstronautsViewModel
+	@ObservedObject private(set) var viewModel: AstronautsViewModel
 
     var body: some View {
 		NavigationView {
 			ScrollView{
-				ForEach(viewModel.astronauts) { astronaut in
+				ForEach(viewModel.astronautCellViewModels) { cellViewModel in
 					NavigationLink {
 						AstronautDetailView(viewModel: AstronautDetailViewModel())
 					} label: {
 						AstronautCellView(
-							viewModel: AstronautCellViewModel(astronaut: astronaut)
+							viewModel: cellViewModel
 						)
 					}
 
@@ -28,12 +28,20 @@ struct AstronautsView: View {
 			.padding()
 			.navigationTitle (viewModel.navigationTitle)
 		}
+		.task {
+			await viewModel.start()
+		}
+
     }
 
 }
 
 struct AstronautsView_Previews: PreviewProvider {
     static var previews: some View {
-		AstronautsView(viewModel: AstronautsViewModel())
+		AstronautsView(
+			viewModel: AstronautsViewModel(
+				astronautsService: AstronautsPreviewClient()
+			)
+		)
     }
 }

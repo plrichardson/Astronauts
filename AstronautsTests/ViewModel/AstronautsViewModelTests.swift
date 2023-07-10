@@ -10,13 +10,15 @@ import XCTest
 
 final class AstronautsViewModelTests: XCTestCase {
 
-	func testViewModel() throws {
+	@MainActor func testViewModel() async throws {
 
-		let viewModel = AstronautsViewModel()
-		XCTAssertFalse(viewModel.astronauts.isEmpty)
+		let viewModel = AstronautsViewModel(astronautsService: AstronautsPreviewClient())
+		await viewModel.start()
+		let cellViewModels = viewModel.astronautCellViewModels
+		XCTAssertFalse(cellViewModels.isEmpty)
 
-		let astronaut = try XCTUnwrap(viewModel.astronauts.first)
-		XCTAssertEqual(astronaut.name, "Michael Collins")
+		let cellViewModel = try XCTUnwrap(cellViewModels.first)
+		XCTAssertEqual(cellViewModel.name, "Michael Collins")
 
 	}
 

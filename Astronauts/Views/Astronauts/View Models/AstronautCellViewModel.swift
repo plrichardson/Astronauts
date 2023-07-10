@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct AstronautCellViewModel {
+@MainActor
+final class AstronautCellViewModel: Identifiable {
+
+	// MARK: - Properties
+
 	var name: String
 	var nationality: String
 	var imageUrl: String
@@ -22,10 +26,13 @@ struct AstronautCellViewModel {
 		}
 	}
 
+	// MARK: - Initialization
+
 	init(astronaut: Astronauts.Astronaut) {
 		self.name = astronaut.name
 		self.nationality = astronaut.nationality
 		self.imageUrl = astronaut.imageUrl
 	}
+	
 }
 
