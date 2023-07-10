@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DA1806B92A5BEDBE00D91177 /* AstronautsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806B82A5BEDBE00D91177 /* AstronautsApp.swift */; };
-		DA1806BB2A5BEDBE00D91177 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806BA2A5BEDBE00D91177 /* ContentView.swift */; };
 		DA1806BD2A5BEDC000D91177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1806BC2A5BEDC000D91177 /* Assets.xcassets */; };
 		DA1806C02A5BEDC000D91177 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1806BF2A5BEDC000D91177 /* Preview Assets.xcassets */; };
 		DA1806CA2A5BEDC000D91177 /* AstronautsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806C92A5BEDC000D91177 /* AstronautsTests.swift */; };
 		DA1806D42A5BEDC000D91177 /* AstronautsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806D32A5BEDC000D91177 /* AstronautsUITests.swift */; };
 		DA1806D62A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806D52A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift */; };
+		DA1806E82A5BEF9000D91177 /* AstronautsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1806E72A5BEF9000D91177 /* AstronautsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		DA1806B52A5BEDBE00D91177 /* Astronauts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronauts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1806B82A5BEDBE00D91177 /* AstronautsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsApp.swift; sourceTree = "<group>"; };
-		DA1806BA2A5BEDBE00D91177 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DA1806BC2A5BEDC000D91177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA1806BF2A5BEDC000D91177 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DA1806C52A5BEDC000D91177 /* AstronautsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronautsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +43,7 @@
 		DA1806CF2A5BEDC000D91177 /* AstronautsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronautsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1806D32A5BEDC000D91177 /* AstronautsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITests.swift; sourceTree = "<group>"; };
 		DA1806D52A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DA1806E72A5BEF9000D91177 /* AstronautsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				DA1806B82A5BEDBE00D91177 /* AstronautsApp.swift */,
-				DA1806BA2A5BEDBE00D91177 /* ContentView.swift */,
 				DA1806BC2A5BEDC000D91177 /* Assets.xcassets */,
 				DA1806BE2A5BEDC000D91177 /* Preview Content */,
+				DA1806E42A5BEF4700D91177 /* Astronauts */,
 			);
 			path = Astronauts;
 			sourceTree = "<group>";
@@ -125,6 +125,30 @@
 				DA1806D52A5BEDC000D91177 /* AstronautsUITestsLaunchTests.swift */,
 			);
 			path = AstronautsUITests;
+			sourceTree = "<group>";
+		};
+		DA1806E42A5BEF4700D91177 /* Astronauts */ = {
+			isa = PBXGroup;
+			children = (
+				DA1806E52A5BEF6200D91177 /* Views */,
+				DA1806E62A5BEF6900D91177 /* View Models */,
+			);
+			path = Astronauts;
+			sourceTree = "<group>";
+		};
+		DA1806E52A5BEF6200D91177 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DA1806E72A5BEF9000D91177 /* AstronautsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DA1806E62A5BEF6900D91177 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA1806BB2A5BEDBE00D91177 /* ContentView.swift in Sources */,
+				DA1806E82A5BEF9000D91177 /* AstronautsView.swift in Sources */,
 				DA1806B92A5BEDBE00D91177 /* AstronautsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
