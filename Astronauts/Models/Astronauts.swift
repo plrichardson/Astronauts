@@ -36,26 +36,27 @@ extension Astronauts {
 		// MARK: - Types
 
 		private enum AstronautCodingKeys: String, CodingKey {
+			case id
 			case name
 			case nationality
-			case image = "profile_image_thumbnail"
+			case imageUrl = "profile_image_thumbnail"
 		}
 
 		// MARK: - Properties
 
-		var id: String
+		var id: Int
 		var name: String
 		var nationality: String
-		var image: String
+		var imageUrl: String
 
 		// MARK: - Initialization
 
 		init(from decoder: Decoder) throws {
-			self.id = UUID().uuidString
 			let container = try decoder.container(keyedBy: AstronautCodingKeys.self)
+			self.id = try container.decode(Int.self, forKey: .id)
 			self.name = try container.decode(String.self, forKey: .name)
 			self.nationality = try container.decode(String.self, forKey: .nationality)
-			self.image = try container.decode(String.self, forKey: .image)
+			self.imageUrl = try container.decode(String.self, forKey: .imageUrl)
 		}
 
 	}

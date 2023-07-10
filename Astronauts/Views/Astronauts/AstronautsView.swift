@@ -14,11 +14,14 @@ struct AstronautsView: View {
     var body: some View {
 		NavigationView {
 			ScrollView{
-				ForEach(viewModel.astronauts) {
-					Text($0.name)
+				ForEach(viewModel.astronauts) { astronaut in
+					AstronautCellView(
+						viewModel: AstronautCellViewModel(astronaut: astronaut)
+					)
 				}
 			}
-			.navigationTitle(viewModel.navigationTitle)
+			.padding()
+			.navigationTitle (viewModel.navigationTitle)
 		}
     }
 
