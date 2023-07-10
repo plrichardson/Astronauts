@@ -11,7 +11,7 @@ import SwiftUI
 final class AstronautCellViewModel: Identifiable {
 
 	// MARK: - Properties
-
+	var id: Int
 	var name: String
 	var nationality: String
 	var imageUrl: String
@@ -29,6 +29,7 @@ final class AstronautCellViewModel: Identifiable {
 	// MARK: - Initialization
 
 	init(astronaut: Astronauts.Astronaut) {
+		self.id = astronaut.id
 		self.name = astronaut.name
 		self.nationality = astronaut.nationality
 		self.imageUrl = astronaut.imageUrl

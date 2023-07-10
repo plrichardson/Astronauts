@@ -7,20 +7,40 @@
 
 import SwiftUI
 
-struct AstronautDetailViewModel {
+final class AstronautDetailViewModel: ObservableObject {
 
-	let astronaut = Astronaut.preview
+	// MARK: - Properties
+
+	let astronautsService: AstronautsService
+
+	@Published private(set) var astronaut: Astronaut?
 
 	var id: Int
-	var name: String
-	var nationality: String
-	var bio: String
-	var imageUrl: String
-	var dob: String
+
+	var name: String? {
+		astronaut?.name
+	}
+
+	var nationality: String? {
+		astronaut?.nationality
+	}
+
+	var bio: String? {
+		astronaut?.bio
+	}
+
+	var imageUrl: String? {
+		astronaut?.imageUrl
+	}
+
+	var dob: String? {
+		astronaut?.dob
+	}
 
 	var image: UIImage? {
 		get {
-			if let url = URL(string: imageUrl),
+			if let imageUrl = imageUrl,
+			   let url = URL(string: imageUrl),
 			   let data = try? Data(contentsOf: url) {
 				return UIImage(data: data)
 			}
@@ -28,14 +48,26 @@ struct AstronautDetailViewModel {
 		}
 	}
 
+	// MARK: - Initialization
 
-	init(astronaut: Astronaut = Astronaut.preview) {
-		self.id = astronaut.id
-		self.name = astronaut.name
-		self.nationality = astronaut.nationality
-		self.bio = astronaut.bio
-		self.imageUrl = astronaut.imageUrl
-		self.dob = astronaut.dob
+	init(astronautsService: AstronautsService,
+		 id: Int) {
+		self.astronautsService = astronautsService
+//		self.id = id
+		self.id = 38
+	}
+
+	// MARK: - Public API
+
+	func start() async {
+		do {
+			let astronaut = try await astronautsService.fetchAstronaut(id: id)
+			self.astronaut = astronaut
+		} catch {
+			print("Unable to fetch Astronaut \(id)")
+		}
+
 	}
 
 }
+

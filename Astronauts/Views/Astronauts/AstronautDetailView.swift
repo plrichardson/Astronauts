@@ -9,34 +9,46 @@ import SwiftUI
 
 struct AstronautDetailView: View {
 
-	var viewModel: AstronautDetailViewModel
+	@ObservedObject private(set) var viewModel: AstronautDetailViewModel
 
 	var body: some View {
 		ScrollView {
-			VStack(alignment: .leading) {
-				Text(viewModel.name)
-					.font(.title)
-				if let foo = viewModel.image {
-					Image(uiImage: foo)
+			if let name = viewModel.name,
+			   let image = viewModel.image,
+			   let nationality = viewModel.nationality,
+			   let dob = viewModel.dob ,
+			   let bio = viewModel.bio {
+				VStack(alignment: .leading) {
+					Text(name)
+						.font(.title)
+					Image(uiImage: image)
 						.resizable()
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 250)
 						.clipShape(RoundedRectangle(cornerRadius: 5.0))
+					Text("\(nationality), born \(dob)")
+						.font(.subheadline)
+						.padding(.bottom)
+					Text(bio)
+						.font(.body)
+					Spacer()
 				}
-				Text("\(viewModel.nationality), born \(viewModel.dob)")
-					.font(.subheadline)
-					.padding(.bottom)
-				Text(viewModel.bio)
-					.font(.body)
-				Spacer()
+				.padding()
+			} else {
+				ProgressView()
 			}
-			.padding()
+		}
+		.task {
+			await viewModel.start()
 		}
 	}
 }
 
 struct AstronautDetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		AstronautDetailView(viewModel: AstronautDetailViewModel())
+		AstronautDetailView(
+			viewModel: AstronautDetailViewModel(
+				astronautsService: AstronautsPreviewClient(),
+				id: 34))
 	}
 }

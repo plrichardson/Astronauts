@@ -13,7 +13,7 @@ final class AstronautsViewModel: ObservableObject {
 	// MARK: - Properties
 
 	private(set) var navigationTitle = "Astronauts"
-	private let astronautsService: AstronautsService
+	private(set) var astronautsService: AstronautsService
 	@Published private(set) var astronautCellViewModels: [AstronautCellViewModel] = []
 
 	// MARK: - Initialization

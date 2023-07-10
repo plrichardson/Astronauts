@@ -16,7 +16,12 @@ struct AstronautsView: View {
 			ScrollView{
 				ForEach(viewModel.astronautCellViewModels) { cellViewModel in
 					NavigationLink {
-						AstronautDetailView(viewModel: AstronautDetailViewModel())
+						AstronautDetailView(
+							viewModel: AstronautDetailViewModel(
+								astronautsService: AstronautsPreviewClient(),
+								id: cellViewModel.id
+							)
+						)
 					} label: {
 						AstronautCellView(
 							viewModel: cellViewModel
