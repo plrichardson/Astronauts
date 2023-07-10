@@ -15,9 +15,14 @@ struct AstronautsView: View {
 		NavigationView {
 			ScrollView{
 				ForEach(viewModel.astronauts) { astronaut in
-					AstronautCellView(
-						viewModel: AstronautCellViewModel(astronaut: astronaut)
-					)
+					NavigationLink {
+						AstronautDetailView(viewModel: AstronautDetailViewModel())
+					} label: {
+						AstronautCellView(
+							viewModel: AstronautCellViewModel(astronaut: astronaut)
+						)
+					}
+
 				}
 			}
 			.padding()
