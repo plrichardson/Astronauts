@@ -18,12 +18,9 @@ struct AstronautDetailView: View {
 				case .fetching:
 					ProgressView()
 				case .data:
-					if let name = viewModel.name,
-					   let nationality = viewModel.nationality,
+					if let nationality = viewModel.nationality,
 					   let dob = viewModel.dob ,
 					   let bio = viewModel.bio {
-						Text(name)
-							.font(.title)
 						if let image = viewModel.image {
 							Image(uiImage: image)
 								.resizable()
@@ -44,6 +41,7 @@ struct AstronautDetailView: View {
 			}
 			.padding()
 		}
+		.navigationTitle(viewModel.name ?? "")
 		.task {
 			await viewModel.start()
 		}
