@@ -12,14 +12,12 @@ final class AstronautCellViewModel: ObservableObject, Identifiable {
 
 	// MARK: - Properties
 
-	@Published private(set) var image: UIImage?
-
 	private let astronautsService: AstronautsService
 
 	var id: Int
 	var name: String
 	var nationality: String
-	var imageUrl: String
+	var imageUrl: URL?
 
 	var astronautDetailViewModel: AstronautDetailViewModel {
 		.init(astronautsService: astronautsService,
@@ -33,24 +31,9 @@ final class AstronautCellViewModel: ObservableObject, Identifiable {
 		self.id = astronaut.id
 		self.name = astronaut.name
 		self.nationality = astronaut.nationality
-		self.imageUrl = astronaut.imageUrl
+		self.imageUrl = URL(string: astronaut.imageUrl)
 		self.astronautsService = astronautsService
 	}
 
-	fileprivate func loadImage() async {
-		let session = URLSession.shared
-		if let url = URL(string: imageUrl) {
-			do {
-				let (data, _) = try await session.data(from: url)
-				self.image = .init(data: data)
-			} catch {
-				print("Invalid data")
-			}
-		}
-	}
-
-	func start() async {
-		await loadImage()
-	}
 }
 
