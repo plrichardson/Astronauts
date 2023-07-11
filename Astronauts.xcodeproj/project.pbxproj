@@ -111,8 +111,9 @@
 			children = (
 				DA1806B82A5BEDBE00D91177 /* AstronautsApp.swift */,
 				DA1806E52A5BEF6200D91177 /* Views */,
+				DA1806E62A5BEF6900D91177 /* View Models */,
 				DA1806EA2A5BF01400D91177 /* Models */,
-				DA18070A2A5C3F7600D91177 /* Astronauts */,
+				DA18070A2A5C3F7600D91177 /* Network */,
 				DA1806F12A5C032000D91177 /* Resources */,
 				DA1806BE2A5BEDC000D91177 /* Preview Content */,
 			);
@@ -140,21 +141,12 @@
 			path = AstronautsTests;
 			sourceTree = "<group>";
 		};
-		DA1806E42A5BEF4700D91177 /* Astronauts */ = {
+		DA1806E52A5BEF6200D91177 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DA1806E72A5BEF9000D91177 /* AstronautsView.swift */,
 				DA1806F82A5C1D4400D91177 /* AstronautCellView.swift */,
 				DA1806FC2A5C2DF400D91177 /* AstronautDetailView.swift */,
-				DA1806E62A5BEF6900D91177 /* View Models */,
-			);
-			path = Astronauts;
-			sourceTree = "<group>";
-		};
-		DA1806E52A5BEF6200D91177 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				DA1806E42A5BEF4700D91177 /* Astronauts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,14 +196,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DA18070A2A5C3F7600D91177 /* Astronauts */ = {
+		DA18070A2A5C3F7600D91177 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				DA18070B2A5C3F9200D91177 /* AstronautsService.swift */,
 				DA18070D2A5C401B00D91177 /* AstronautsPreviewClient.swift */,
 				DA18070F2A5C410F00D91177 /* AstronautsClient.swift */,
 			);
-			path = Astronauts;
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
