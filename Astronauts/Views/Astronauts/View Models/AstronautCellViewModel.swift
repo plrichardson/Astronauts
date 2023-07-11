@@ -33,7 +33,7 @@ final class AstronautCellViewModel: ObservableObject, Identifiable {
 		if let url = URL(string: imageUrl) {
 			do {
 				let (data, _) = try await session.data(from: url)
-				self.image = UIImage(data: data)
+				self.image = .init(data: data)
 			} catch {
 				print("Invalid data")
 			}

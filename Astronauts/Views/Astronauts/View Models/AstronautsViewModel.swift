@@ -41,7 +41,7 @@ final class AstronautsViewModel: ObservableObject {
 			let astronauts = try await astronautsService.fetchAstronauts()
 			astronautCellViewModels = astronauts
 				.map { astronaut in
-					AstronautCellViewModel(astronaut: astronaut)
+						.init(astronaut: astronaut)
 				}
 			state = .data
 		} catch  {
@@ -54,8 +54,8 @@ final class AstronautsViewModel: ObservableObject {
 			return
 		}
 
-		astronautCellViewModels.sort { lhc, rhc in
-			lhc.name < rhc.name
+		astronautCellViewModels.sort { lhs, rhs in
+			lhs.name < rhs.name
 		}
 	}
 
