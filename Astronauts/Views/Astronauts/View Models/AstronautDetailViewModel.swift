@@ -24,7 +24,6 @@ final class AstronautDetailViewModel: ObservableObject {
 
 	@Published private(set) var state: State = .fetching
 	@Published private(set) var astronaut: Astronaut?
-	@Published private(set) var image: UIImage?
 
 	var id: Int
 
@@ -40,8 +39,11 @@ final class AstronautDetailViewModel: ObservableObject {
 		astronaut?.bio
 	}
 
-	var imageUrl: String? {
-		astronaut?.imageUrl
+	var imageUrl: URL? {
+		guard let urlString = astronaut?.imageUrl else  {
+			return nil
+		}
+		return URL(string: urlString)
 	}
 
 	var dob: String? {
@@ -70,28 +72,10 @@ final class AstronautDetailViewModel: ObservableObject {
 			let astronaut = try await astronautsService.fetchAstronaut(id: id)
 			self.astronaut = astronaut
 			state = .data
-			await loadImage()
 		} catch {
 			state = .error(message: "Astronauts is unable to fetch data: \(error)")
 		}
 	}
-
-	fileprivate func loadImage() async {
-		guard let imageUrl = imageUrl else {
-			return
-		}
-
-		let session = URLSession.shared
-		if let url = URL(string: imageUrl) {
-			do {
-				let (data, _) = try await session.data(from: url)
-				self.image = .init(data: data)
-			} catch {
-				print("Invalid data")
-			}
-		}
-	}
-
 
 }
 

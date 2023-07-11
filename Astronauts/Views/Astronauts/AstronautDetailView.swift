@@ -19,15 +19,31 @@ struct AstronautDetailView: View {
 					ProgressView()
 				case .data:
 					if let nationality = viewModel.nationality,
-					   let dob = viewModel.dob ,
-					   let bio = viewModel.bio {
-						if let image = viewModel.image {
-							Image(uiImage: image)
-								.resizable()
-								.aspectRatio(contentMode: .fit)
-								.frame(width: 250)
-								.clipShape(RoundedRectangle(cornerRadius: 5.0))
+					   let dob = viewModel.dob,
+					   let bio = viewModel.bio,
+					   let imageUrl = viewModel.imageUrl {
+						AsyncImage(
+							url: imageUrl,
+							transaction: Transaction(animation: .easeInOut)
+						) { phase in
+							switch phase {
+							case .empty:
+								ProgressView()
+							case .success(let image):
+								image
+									.resizable()
+									.aspectRatio(contentMode: .fit)
+									.transition(.scale(scale: 0.1, anchor: .center))
+							case .failure:
+								Image(systemName: "wifi.slash")
+							@unknown default:
+								EmptyView()
+							}
 						}
+						.frame(width: 250)
+						.background(Color.gray)
+						.clipShape(RoundedRectangle(cornerRadius: 5.0))
+
 						Text("\(nationality), born \(dob)")
 							.font(.subheadline)
 							.padding(.bottom)
