@@ -33,18 +33,17 @@ struct AstronautsClient: AstronautsService {
 
 	func fetchAstronaut(id: Int) async throws -> Astronaut {
 
-		return Astronaut.preview
+		//		return Astronaut.preview
+		
+		let urlString = "https://spacelaunchnow.me/api/3.5.0/astronaut/\(id)"
+		if let url = URL(string: urlString) {
+			let request = URLRequest(url: url)
+			let (data, _) = try await URLSession.shared.data(for: request)
+			return try JSONDecoder().decode(Astronaut.self, from: data)
+		} else {
+			throw AstronautError.invalidURL
+		}
 
-		/*
-		 let urlString = "https://spacelaunchnow.me/api/3.5.0/astronaut/\(id)"
-		 if let url = URL(string: urlString) {
-		 let request = URLRequest(url: url)
-		 let (data, _) = try await URLSession.shared.data(for: request)
-		 return try JSONDecoder().decode(Astronaut.self, from: data)
-		 } else {
-		 throw AstronautError.invalidURL
-		 }
-		 */
 
 	}
 

@@ -10,10 +10,19 @@ import SwiftUI
 @MainActor
 final class AstronautDetailViewModel: ObservableObject {
 
+	// MARK: - Types
+
+	enum State {
+		case fetching
+		case data
+		case error(message: String)
+	}
+
 	// MARK: - Properties
 
 	let astronautsService: AstronautsService
 
+	@Published private(set) var state: State = .fetching
 	@Published private(set) var astronaut: Astronaut?
 	@Published private(set) var image: UIImage?
 
@@ -60,9 +69,11 @@ final class AstronautDetailViewModel: ObservableObject {
 		do {
 			let astronaut = try await astronautsService.fetchAstronaut(id: id)
 			self.astronaut = astronaut
+			self.state = .data
 			await loadImage()
 		} catch {
 			print("Unable to fetch Astronaut \(id): \(error)")
+			state = .error(message: "Astronauts is unable to fetch data for Astronaut \(id): \(error)")
 		}
 
 	}
