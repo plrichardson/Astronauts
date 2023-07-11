@@ -1,6 +1,6 @@
 # Astronauts
 
-## Requirements/Implementation details
+## Requirements
 
 * On app launch, consume `https://spacelaunchnow.me/api/3.5.0/astronaut/`
 * When the data is retrieved, display the results in a list.
@@ -15,3 +15,8 @@
 * Version 1.0 is the result of two days work.
 * The number of requests which can be made with the Space Launch Now API is limited. The user is able to revert to local data when the limit is reached. In this case the detail view shows data for Michael Collins, irrespective of which cell in the list view is tapped.
 
+
+## To Do
+* increase unit test coverage
+* handle landscape orientation
+* add iPad deployment
