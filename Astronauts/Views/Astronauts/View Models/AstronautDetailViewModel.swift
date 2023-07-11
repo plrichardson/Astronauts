@@ -60,8 +60,7 @@ final class AstronautDetailViewModel: ObservableObject {
 	init(astronautsService: AstronautsService,
 		 id: Int) {
 		self.astronautsService = astronautsService
-//		self.id = id
-		self.id = 38
+		self.id = id
 	}
 
 	// MARK: - Public API
@@ -71,7 +70,7 @@ final class AstronautDetailViewModel: ObservableObject {
 			let astronaut = try await astronautsService.fetchAstronaut(id: id)
 			self.astronaut = astronaut
 		} catch {
-			print("Unable to fetch Astronaut \(id)")
+			print("Unable to fetch Astronaut \(id): \(error)")
 		}
 
 	}

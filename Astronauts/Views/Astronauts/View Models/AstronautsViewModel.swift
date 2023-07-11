@@ -32,7 +32,7 @@ final class AstronautsViewModel: ObservableObject {
 					AstronautCellViewModel(astronaut: astronaut)
 				}
 		} catch  {
-			print("Unable to fetch Astronauts")
+			print("Unable to fetch Astronauts: \(error)")
 		}
 
 	}

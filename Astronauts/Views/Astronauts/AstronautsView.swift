@@ -18,7 +18,7 @@ struct AstronautsView: View {
 					NavigationLink {
 						AstronautDetailView(
 							viewModel: AstronautDetailViewModel(
-								astronautsService: AstronautsPreviewClient(),
+								astronautsService: AstronautsClient(),
 								id: cellViewModel.id
 							)
 						)
