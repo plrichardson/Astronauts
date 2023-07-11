@@ -37,4 +37,14 @@ final class AstronautsViewModel: ObservableObject {
 
 	}
 
+	func sort() {
+		guard !astronautCellViewModels.isEmpty else {
+			return
+		}
+
+		astronautCellViewModels.sort { lhc, rhc in
+			lhc.name < rhc.name
+		}
+	}
+
 }

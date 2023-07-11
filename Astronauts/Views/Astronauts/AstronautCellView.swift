@@ -16,6 +16,7 @@ struct AstronautCellView: View {
 			VStack(alignment: .leading) {
 				Text(viewModel.name)
 					.font(.headline)
+					.foregroundColor(.accentColor)
 				Text(viewModel.nationality)
 					.font(.subheadline)
 				Spacer()
