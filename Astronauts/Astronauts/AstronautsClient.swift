@@ -11,39 +11,41 @@ struct AstronautsClient: AstronautsService {
 
 	enum AstronautError: Error {
 		case invalidURL
+		case tooManyRequests
 	}
 
 	func fetchAstronauts() async throws -> [Astronauts.Astronaut] {
 
-		return Astronauts.preview.astronauts
-
-		/*
-		 let urlString = "https://spacelaunchnow.me/api/3.5.0/astronaut/"
-		 if let url = URL(string: urlString) {
-		 let request = URLRequest(url: url)
-		 let (data, _) = try await URLSession.shared.data(for: request)
-		 let result = try JSONDecoder().decode(Astronauts.self, from: data)
-		 return result.astronauts
-		 } else {
-		 throw AstronautError.invalidURL
-		 }
-		 */
-		
-	}
-
-	func fetchAstronaut(id: Int) async throws -> Astronaut {
-
-		//		return Astronaut.preview
-		
-		let urlString = "https://spacelaunchnow.me/api/3.5.0/astronaut/\(id)"
+		let urlString = "https://spacelaunchnow.me/api/3.5.0/astronaut/"
 		if let url = URL(string: urlString) {
 			let request = URLRequest(url: url)
-			let (data, _) = try await URLSession.shared.data(for: request)
-			return try JSONDecoder().decode(Astronaut.self, from: data)
+			let (data, response) = try await URLSession.shared.data(for: request)
+			if let httpResponse = response as? HTTPURLResponse,
+			   httpResponse.statusCode == 429 {
+				throw AstronautError.tooManyRequests
+			}
+			let result = try JSONDecoder().decode(Astronauts.self, from: data)
+			return result.astronauts
 		} else {
 			throw AstronautError.invalidURL
 		}
 
+	}
+
+	func fetchAstronaut(id: Int) async throws -> Astronaut {
+
+		let urlString = "https://spacelaunchnow.me/api/3.5.0/astronaut/\(id)"
+		if let url = URL(string: urlString) {
+			let request = URLRequest(url: url)
+			let (data, response) = try await URLSession.shared.data(for: request)
+			if let httpResponse = response as? HTTPURLResponse,
+			   httpResponse.statusCode == 429 {
+				throw AstronautError.tooManyRequests
+			}
+			return try JSONDecoder().decode(Astronaut.self, from: data)
+		} else {
+			throw AstronautError.invalidURL
+		}
 
 	}
 

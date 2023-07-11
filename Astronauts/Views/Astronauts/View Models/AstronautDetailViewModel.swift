@@ -69,13 +69,11 @@ final class AstronautDetailViewModel: ObservableObject {
 		do {
 			let astronaut = try await astronautsService.fetchAstronaut(id: id)
 			self.astronaut = astronaut
-			self.state = .data
+			state = .data
 			await loadImage()
 		} catch {
-			print("Unable to fetch Astronaut \(id): \(error)")
-			state = .error(message: "Astronauts is unable to fetch data for Astronaut \(id): \(error)")
+			state = .error(message: "Astronauts is unable to fetch data: \(error)")
 		}
-
 	}
 
 	fileprivate func loadImage() async {
