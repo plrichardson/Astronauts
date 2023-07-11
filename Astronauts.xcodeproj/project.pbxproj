@@ -66,6 +66,7 @@
 		DA18070B2A5C3F9200D91177 /* AstronautsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsService.swift; sourceTree = "<group>"; };
 		DA18070D2A5C401B00D91177 /* AstronautsPreviewClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsPreviewClient.swift; sourceTree = "<group>"; };
 		DA18070F2A5C410F00D91177 /* AstronautsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsClient.swift; sourceTree = "<group>"; };
+		DAA2E1272A5D78DF004358FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		DA1806AC2A5BEDBE00D91177 = {
 			isa = PBXGroup;
 			children = (
+				DAA2E1272A5D78DF004358FB /* README.md */,
 				DA1806B72A5BEDBE00D91177 /* Astronauts */,
 				DA1806C82A5BEDC000D91177 /* AstronautsTests */,
 				DA1806B62A5BEDBE00D91177 /* Products */,
