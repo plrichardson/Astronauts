@@ -47,7 +47,8 @@ struct AstronautCellView_Previews: PreviewProvider {
 	static var previews: some View {
 		AstronautCellView(
 			viewModel: AstronautCellViewModel(
-				astronaut: Astronauts.preview.astronauts[0])
+				astronaut: Astronauts.preview.astronauts[0],
+				astronautsService: AstronautsPreviewClient())
 		)
 	}
 }

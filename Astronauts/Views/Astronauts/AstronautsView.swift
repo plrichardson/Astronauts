@@ -29,10 +29,7 @@ struct AstronautsView: View {
 						ForEach(viewModel.astronautCellViewModels) { cellViewModel in
 							NavigationLink {
 								AstronautDetailView(
-									viewModel: AstronautDetailViewModel(
-										astronautsService: viewModel.astronautsService,
-										id: cellViewModel.id
-									)
+									viewModel: cellViewModel.astronautDetailViewModel
 								)
 							} label: {
 								AstronautCellView(

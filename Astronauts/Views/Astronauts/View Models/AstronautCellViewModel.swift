@@ -14,18 +14,27 @@ final class AstronautCellViewModel: ObservableObject, Identifiable {
 
 	@Published private(set) var image: UIImage?
 
+	private let astronautsService: AstronautsService
+
 	var id: Int
 	var name: String
 	var nationality: String
 	var imageUrl: String
 
+	var astronautDetailViewModel: AstronautDetailViewModel {
+		.init(astronautsService: astronautsService,
+			  id: id
+		)
+	}
+
 	// MARK: - Initialization
 
-	init(astronaut: Astronauts.Astronaut) {
+	init(astronaut: Astronauts.Astronaut, astronautsService: AstronautsService) {
 		self.id = astronaut.id
 		self.name = astronaut.name
 		self.nationality = astronaut.nationality
 		self.imageUrl = astronaut.imageUrl
+		self.astronautsService = astronautsService
 	}
 
 	fileprivate func loadImage() async {

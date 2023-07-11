@@ -41,7 +41,8 @@ final class AstronautsViewModel: ObservableObject {
 			let astronauts = try await astronautsService.fetchAstronauts()
 			astronautCellViewModels = astronauts
 				.map { astronaut in
-						.init(astronaut: astronaut)
+						.init(astronaut: astronaut,
+							  astronautsService: astronautsService)
 				}
 			state = .data
 		} catch  {
