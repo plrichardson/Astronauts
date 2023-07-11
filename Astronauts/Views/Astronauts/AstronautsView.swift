@@ -8,34 +8,40 @@
 import SwiftUI
 
 struct AstronautsView: View {
-
+	
 	@ObservedObject private(set) var viewModel: AstronautsViewModel
-
+	
 	var body: some View {
 		NavigationView {
 			ScrollView {
 				LazyVGrid(columns: [GridItem()], spacing: 20.0) {
-					Button("Sort by First Name") {
-						viewModel.sort()
-					}
-					.padding()
-					.foregroundColor(.white)
-					.background(Color.accentColor)
-					.clipShape(Capsule())
-					ForEach(viewModel.astronautCellViewModels) { cellViewModel in
-						NavigationLink {
-							AstronautDetailView(
-								viewModel: AstronautDetailViewModel(
-									astronautsService: AstronautsClient(),
-									id: cellViewModel.id
-								)
-							)
-						} label: {
-							AstronautCellView(
-								viewModel: cellViewModel
-							)
+					switch viewModel.state {
+					case .fetching:
+						ProgressView()
+					case .data:
+						Button("Sort by First Name") {
+							viewModel.sort()
 						}
-
+						.padding()
+						.foregroundColor(.white)
+						.background(Color.accentColor)
+						.clipShape(Capsule())
+						ForEach(viewModel.astronautCellViewModels) { cellViewModel in
+							NavigationLink {
+								AstronautDetailView(
+									viewModel: AstronautDetailViewModel(
+										astronautsService: AstronautsClient(),
+										id: cellViewModel.id
+									)
+								)
+							} label: {
+								AstronautCellView(
+									viewModel: cellViewModel
+								)
+							}
+						}
+					case .error(message: let message):
+						Text(message)
 					}
 				}
 				.padding()
@@ -45,9 +51,9 @@ struct AstronautsView: View {
 		.task {
 			await viewModel.start()
 		}
-
+		
 	}
-
+	
 }
 
 struct AstronautsView_Previews: PreviewProvider {

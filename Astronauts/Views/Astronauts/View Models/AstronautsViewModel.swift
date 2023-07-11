@@ -10,10 +10,19 @@ import Foundation
 @MainActor
 final class AstronautsViewModel: ObservableObject {
 
+	// MARK: - Types
+
+	enum State {
+		case fetching
+		case data
+		case error(message: String)
+	}
+
 	// MARK: - Properties
 
 	private(set) var navigationTitle = "Astronauts"
 	private(set) var astronautsService: AstronautsService
+	@Published private(set) var state: State = .fetching
 	@Published private(set) var astronautCellViewModels: [AstronautCellViewModel] = []
 
 	// MARK: - Initialization
@@ -31,10 +40,10 @@ final class AstronautsViewModel: ObservableObject {
 				.map { astronaut in
 					AstronautCellViewModel(astronaut: astronaut)
 				}
+			state = .data
 		} catch  {
-			print("Unable to fetch Astronauts: \(error)")
+			state = .error(message: "Astronauts is unable to fetch data: \(error)")
 		}
-
 	}
 
 	func sort() {
