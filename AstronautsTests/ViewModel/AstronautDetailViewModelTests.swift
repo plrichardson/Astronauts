@@ -10,6 +10,7 @@ import XCTest
 
 final class AstronautDetailViewModelTests: XCTestCase {
 
+	@MainActor
 	func testViewModel() async throws {
 
 		let viewModel = AstronautDetailViewModel(
