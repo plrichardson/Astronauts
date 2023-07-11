@@ -14,10 +14,10 @@ final class AstronautCellViewModel: ObservableObject, Identifiable {
 
 	private let astronautsService: AstronautsService
 
-	var id: Int
-	var name: String
-	var nationality: String
-	var imageUrl: URL?
+	let id: Int
+	let name: String
+	let nationality: String
+	let imageUrl: URL?
 
 	var astronautDetailViewModel: AstronautDetailViewModel {
 		.init(astronautsService: astronautsService,

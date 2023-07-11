@@ -25,7 +25,7 @@ final class AstronautDetailViewModel: ObservableObject {
 	@Published private(set) var state: State = .fetching
 	@Published private(set) var astronaut: Astronaut?
 
-	var id: Int
+	let id: Int
 
 	var name: String? {
 		astronaut?.name
