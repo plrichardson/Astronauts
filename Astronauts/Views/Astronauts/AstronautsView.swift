@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AstronautsView: View {
-	
+
 	@ObservedObject private(set) var viewModel: AstronautsViewModel
-	
+
 	var body: some View {
 		NavigationView {
 			ScrollView {
@@ -51,9 +51,15 @@ struct AstronautsView: View {
 		.task {
 			await viewModel.start()
 		}
-		
+
 	}
-	
+
+	init(viewModel: AstronautsViewModel) {
+		self.viewModel = viewModel
+		UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.accentColor)]
+		UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.accentColor)]
+	}
+
 }
 
 struct AstronautsView_Previews: PreviewProvider {

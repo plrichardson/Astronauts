@@ -46,6 +46,12 @@ struct AstronautDetailView: View {
 			await viewModel.start()
 		}
 	}
+
+	init(viewModel: AstronautDetailViewModel) {
+		self.viewModel = viewModel
+		UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.accentColor)]
+		UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.accentColor)]
+	}
 }
 
 struct AstronautDetailView_Previews: PreviewProvider {
