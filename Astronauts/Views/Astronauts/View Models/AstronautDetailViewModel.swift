@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class AstronautDetailViewModel: ObservableObject {
 
 	// MARK: - Properties
@@ -14,6 +15,7 @@ final class AstronautDetailViewModel: ObservableObject {
 	let astronautsService: AstronautsService
 
 	@Published private(set) var astronaut: Astronaut?
+	@Published private(set) var image: UIImage?
 
 	var id: Int
 
@@ -44,17 +46,6 @@ final class AstronautDetailViewModel: ObservableObject {
 		return astronaut?.dob
 	}
 
-	var image: UIImage? {
-		get {
-			if let imageUrl = imageUrl,
-			   let url = URL(string: imageUrl),
-			   let data = try? Data(contentsOf: url) {
-				return UIImage(data: data)
-			}
-			return nil
-		}
-	}
-
 	// MARK: - Initialization
 
 	init(astronautsService: AstronautsService,
@@ -69,11 +60,29 @@ final class AstronautDetailViewModel: ObservableObject {
 		do {
 			let astronaut = try await astronautsService.fetchAstronaut(id: id)
 			self.astronaut = astronaut
+			await loadImage()
 		} catch {
 			print("Unable to fetch Astronaut \(id): \(error)")
 		}
 
 	}
+
+	fileprivate func loadImage() async {
+		guard let imageUrl = imageUrl else {
+			return
+		}
+
+		let session = URLSession.shared
+		if let url = URL(string: imageUrl) {
+			do {
+				let (data, _) = try await session.data(from: url)
+				self.image = UIImage(data: data)
+			} catch {
+				print("Invalid data")
+			}
+		}
+	}
+
 
 }
 
