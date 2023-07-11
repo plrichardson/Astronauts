@@ -25,6 +25,9 @@ final class AstronautsViewModel: ObservableObject {
 	@Published private(set) var state: State = .fetching
 	@Published private(set) var astronautCellViewModels: [AstronautCellViewModel] = []
 
+	let reloadButtonTitle = "Use local Data"
+	let sortButtonTitle = "Sort by First Name"
+
 	// MARK: - Initialization
 
 	init(astronautsService: AstronautsService) {
@@ -54,6 +57,12 @@ final class AstronautsViewModel: ObservableObject {
 		astronautCellViewModels.sort { lhc, rhc in
 			lhc.name < rhc.name
 		}
+	}
+
+	func reloadWithLocalData() async {
+		astronautsService = AstronautsPreviewClient()
+		state = .fetching
+		await start()
 	}
 
 }

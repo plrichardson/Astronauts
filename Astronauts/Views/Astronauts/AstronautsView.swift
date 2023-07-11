@@ -19,7 +19,7 @@ struct AstronautsView: View {
 					case .fetching:
 						ProgressView()
 					case .data:
-						Button("Sort by First Name") {
+						Button(viewModel.sortButtonTitle) {
 							viewModel.sort()
 						}
 						.padding()
@@ -30,7 +30,7 @@ struct AstronautsView: View {
 							NavigationLink {
 								AstronautDetailView(
 									viewModel: AstronautDetailViewModel(
-										astronautsService: AstronautsClient(),
+										astronautsService: viewModel.astronautsService,
 										id: cellViewModel.id
 									)
 								)
@@ -42,6 +42,15 @@ struct AstronautsView: View {
 						}
 					case .error(message: let message):
 						Text(message)
+						Button(viewModel.reloadButtonTitle) {
+							Task {
+								await viewModel.reloadWithLocalData()
+							}
+						}
+						.padding()
+						.foregroundColor(.white)
+						.background(Color.accentColor)
+						.clipShape(Capsule())
 					}
 				}
 				.padding()
