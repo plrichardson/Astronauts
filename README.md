@@ -16,5 +16,5 @@ Develop a native iOS application which consumes some simple web services (RESTfu
 ## Notes
 
 * The solution is built with SwiftUI, Swift Concurrency and the MVVM pattern.
-* [Version 1.0](https://github.com/plrichardson/Astronauts/releases/tag/v1.0.0) is the result of two days work.
+* [Version 1.0.1](https://github.com/plrichardson/Astronauts/releases/tag/v1.0.1) is the result of two days work.
 * The number of requests which can be made with the Space Launch Now API is limited. The user is able to revert to local data when the limit is reached. In this case the detail view shows data for Michael Collins, irrespective of which cell in the list view is tapped.
