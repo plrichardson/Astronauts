@@ -10,11 +10,23 @@ import Foundation
 @MainActor
 final class AstronautsViewModel: ObservableObject {
 
+	// MARK: - Types
+
+	enum State {
+		case fetching
+		case data
+		case error(message: String)
+	}
+
 	// MARK: - Properties
 
 	private(set) var navigationTitle = "Astronauts"
 	private(set) var astronautsService: AstronautsService
+	@Published private(set) var state: State = .fetching
 	@Published private(set) var astronautCellViewModels: [AstronautCellViewModel] = []
+
+	let reloadButtonTitle = "Use local Data"
+	let sortButtonTitle = "Sort by First Name"
 
 	// MARK: - Initialization
 
@@ -29,12 +41,13 @@ final class AstronautsViewModel: ObservableObject {
 			let astronauts = try await astronautsService.fetchAstronauts()
 			astronautCellViewModels = astronauts
 				.map { astronaut in
-					AstronautCellViewModel(astronaut: astronaut)
+						.init(astronaut: astronaut,
+							  astronautsService: astronautsService)
 				}
+			state = .data
 		} catch  {
-			print("Unable to fetch Astronauts: \(error)")
+			state = .error(message: "Astronauts is unable to fetch data: \(error)")
 		}
-
 	}
 
 	func sort() {
@@ -42,9 +55,15 @@ final class AstronautsViewModel: ObservableObject {
 			return
 		}
 
-		astronautCellViewModels.sort { lhc, rhc in
-			lhc.name < rhc.name
+		astronautCellViewModels.sort { lhs, rhs in
+			lhs.name < rhs.name
 		}
+	}
+
+	func reloadWithLocalData() async {
+		astronautsService = AstronautsPreviewClient()
+		state = .fetching
+		await start()
 	}
 
 }

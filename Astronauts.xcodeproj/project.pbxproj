@@ -66,6 +66,7 @@
 		DA18070B2A5C3F9200D91177 /* AstronautsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsService.swift; sourceTree = "<group>"; };
 		DA18070D2A5C401B00D91177 /* AstronautsPreviewClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsPreviewClient.swift; sourceTree = "<group>"; };
 		DA18070F2A5C410F00D91177 /* AstronautsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsClient.swift; sourceTree = "<group>"; };
+		DAA2E1272A5D78DF004358FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		DA1806AC2A5BEDBE00D91177 = {
 			isa = PBXGroup;
 			children = (
+				DAA2E1272A5D78DF004358FB /* README.md */,
 				DA1806B72A5BEDBE00D91177 /* Astronauts */,
 				DA1806C82A5BEDC000D91177 /* AstronautsTests */,
 				DA1806B62A5BEDBE00D91177 /* Products */,
@@ -109,8 +111,9 @@
 			children = (
 				DA1806B82A5BEDBE00D91177 /* AstronautsApp.swift */,
 				DA1806E52A5BEF6200D91177 /* Views */,
+				DA1806E62A5BEF6900D91177 /* View Models */,
 				DA1806EA2A5BF01400D91177 /* Models */,
-				DA18070A2A5C3F7600D91177 /* Astronauts */,
+				DA18070A2A5C3F7600D91177 /* Network */,
 				DA1806F12A5C032000D91177 /* Resources */,
 				DA1806BE2A5BEDC000D91177 /* Preview Content */,
 			);
@@ -138,21 +141,12 @@
 			path = AstronautsTests;
 			sourceTree = "<group>";
 		};
-		DA1806E42A5BEF4700D91177 /* Astronauts */ = {
+		DA1806E52A5BEF6200D91177 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DA1806E72A5BEF9000D91177 /* AstronautsView.swift */,
 				DA1806F82A5C1D4400D91177 /* AstronautCellView.swift */,
 				DA1806FC2A5C2DF400D91177 /* AstronautDetailView.swift */,
-				DA1806E62A5BEF6900D91177 /* View Models */,
-			);
-			path = Astronauts;
-			sourceTree = "<group>";
-		};
-		DA1806E52A5BEF6200D91177 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				DA1806E42A5BEF4700D91177 /* Astronauts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,14 +196,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DA18070A2A5C3F7600D91177 /* Astronauts */ = {
+		DA18070A2A5C3F7600D91177 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				DA18070B2A5C3F9200D91177 /* AstronautsService.swift */,
 				DA18070D2A5C401B00D91177 /* AstronautsPreviewClient.swift */,
 				DA18070F2A5C410F00D91177 /* AstronautsClient.swift */,
 			);
-			path = Astronauts;
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,8 +475,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,9 +483,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.plrichardson.Astronauts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -510,8 +506,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,9 +514,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.plrichardson.Astronauts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

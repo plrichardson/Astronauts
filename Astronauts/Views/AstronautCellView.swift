@@ -22,12 +22,26 @@ struct AstronautCellView: View {
 				Spacer()
 			}
 			Spacer()
-			if let image = viewModel.image {
-				Image(uiImage: image)
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.frame(width: 100)
-					.clipShape(Circle())
+			if let imageUrl = viewModel.imageUrl {
+				AsyncImage(url: imageUrl,
+						   transaction: Transaction(animation: .easeInOut)
+						   ) { phase in
+					switch phase {
+					case .empty:
+						ProgressView()
+					case .success(let image):
+						image
+							.resizable()
+							.aspectRatio(contentMode: .fit)
+							.transition(.scale(scale: 0.5, anchor: .center))
+					case .failure:
+						Image(systemName: "wifi.slash")
+					@unknown default:
+						EmptyView()
+					}
+				}
+				.frame(width: 100)
+				.clipShape(Circle())
 			}
 		}
 		.padding()
@@ -35,9 +49,6 @@ struct AstronautCellView: View {
 			RoundedRectangle(cornerRadius: 10.0)
 				.stroke(Color.gray)
 				.opacity(0.25)
-		}
-		.task {
-			await viewModel.start()
 		}
 	}
 
@@ -47,7 +58,8 @@ struct AstronautCellView_Previews: PreviewProvider {
 	static var previews: some View {
 		AstronautCellView(
 			viewModel: AstronautCellViewModel(
-				astronaut: Astronauts.preview.astronauts[0])
+				astronaut: Astronauts.preview.astronauts[0],
+				astronautsService: AstronautsPreviewClient())
 		)
 	}
 }

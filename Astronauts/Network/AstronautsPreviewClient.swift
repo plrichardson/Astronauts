@@ -17,5 +17,4 @@ struct AstronautsPreviewClient: AstronautsService {
 		return Astronaut.preview
 	}
 
-
 }

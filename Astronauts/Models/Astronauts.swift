@@ -32,7 +32,6 @@ extension Astronauts {
 
 	struct Astronaut: Codable, Identifiable {
 
-
 		// MARK: - Types
 
 		private enum AstronautCodingKeys: String, CodingKey {
